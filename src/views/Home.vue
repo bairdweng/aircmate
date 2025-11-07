@@ -110,6 +110,40 @@
       <footer class="footer">
         <p>Powered by RC Match AI</p>
       </footer>
+      
+      <!-- Structured Data for SEO -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "RC Match AI - Intelligent RC Model Upgrade Parts Finder",
+        "description": "Find the perfect upgrade parts for your Traxxas, Arrma, Losi RC models. AI-powered compatibility checker for ESC, motor, servo, suspension, and chassis upgrades.",
+        "url": "https://bairdweng.github.io/aircmate/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://bairdweng.github.io/aircmate/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "keywords": ["Traxxas", "Arrma", "Losi", "RC car", "upgrade parts", "ESC", "motor", "servo", "suspension", "chassis", "1:10 scale", "1:8 scale"],
+        "mainEntity": [
+          {
+            "@type": "Brand",
+            "name": "Traxxas",
+            "description": "Traxxas RC car models including Slash, Rustler, Maxx, X-Maxx, Revo, TRX-4"
+          },
+          {
+            "@type": "Brand", 
+            "name": "Arrma",
+            "description": "Arrma RC car models including Granite, Typhon, Kraton, Outcast"
+          },
+          {
+            "@type": "Brand",
+            "name": "Losi",
+            "description": "Losi RC car models including Mini 8IGHT, Tenacity, DBXL"
+          }
+        ]
+      }
+      </script>
     </div>
   </n-message-provider>
 </template>
@@ -221,12 +255,12 @@ export default {
       searchQuery.value = suggestion.fullName
       searchSuggestions.value = []
       
-      // 生成语义化URL：/search/brand/model-name
+      // 生成语义化URL：/upgrade-parts/brand/model-name
       const brandSlug = suggestion.brand.toLowerCase().replace(/\s+/g, '-')
       const modelSlug = suggestion.model.toLowerCase().replace(/\s+/g, '-')
       
       // 导航到语义化URL
-      router.push(`/search/${brandSlug}/${modelSlug}`)
+      router.push(`/upgrade-parts/${brandSlug}/${modelSlug}`)
     }
 
     // 查找详细模型数据
@@ -283,12 +317,12 @@ export default {
         // 跟踪搜索事件
         trackSearch(searchQuery.value, 1) // 假设有1个结果
         
-        // 生成语义化URL：/search/brand/model-name
+        // 生成语义化URL：/upgrade-parts/brand/model-name
         const brandSlug = matchedModel.brand.toLowerCase().replace(/\s+/g, '-')
         const modelSlug = matchedModel.model.toLowerCase().replace(/\s+/g, '-')
         
         // 导航到语义化URL
-        router.push(`/search/${brandSlug}/${modelSlug}`)
+        router.push(`/upgrade-parts/${brandSlug}/${modelSlug}`)
       } else {
         // 如果没有找到匹配的车型，显示错误提示
         message.error('Please select a valid model from the suggestions list')
@@ -325,12 +359,12 @@ export default {
 
         // 导航到搜索结果页面 - 只允许配置中的车型
         if (matchedModel) {
-          // 生成语义化URL：/search/brand/model-name
-          const brandSlug = matchedModel.brand.toLowerCase().replace(/\s+/g, '-')
-          const modelSlug = matchedModel.model.toLowerCase().replace(/\s+/g, '-')
-          
-          // 导航到语义化URL
-          router.push(`/search/${brandSlug}/${modelSlug}`)
+          // 生成语义化URL：/upgrade-parts/brand/model-name
+        const brandSlug = matchedModel.brand.toLowerCase().replace(/\s+/g, '-')
+        const modelSlug = matchedModel.model.toLowerCase().replace(/\s+/g, '-')
+        
+        // 导航到语义化URL
+        router.push(`/upgrade-parts/${brandSlug}/${modelSlug}`)
         } else {
           // 如果没有找到匹配的车型，显示错误提示
           message.error('Please select a valid model from the suggestions list')

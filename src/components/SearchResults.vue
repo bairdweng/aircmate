@@ -219,6 +219,92 @@ export default defineComponent({
       }
     }
 
+    // 添加结构化数据
+    const addStructuredData = (model) => {
+      // 创建结构化数据对象
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": `${model.brand} ${model.model} RC Car Upgrade Parts`,
+        "description": `Find the best upgrade parts for ${model.brand} ${model.model} ${model.scale} scale RC car. Browse ESC, motor, servo, suspension, and chassis upgrades.`,
+        "brand": {
+          "@type": "Brand",
+          "name": model.brand
+        },
+        "model": model.model,
+        "category": "Radio Controlled Car Parts",
+        "url": window.location.href,
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": upgradeRecords.value.length,
+          "lowPrice": "19.99",
+          "highPrice": "299.99",
+          "priceCurrency": "USD"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Scale",
+            "value": model.scale
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Drive Type",
+            "value": model.drive
+          }
+        ]
+      }
+      
+      // 移除现有的结构化数据脚本
+      const existingScript = document.querySelector('script[type="application/ld+json"]')
+      if (existingScript) {
+        existingScript.remove()
+      }
+      
+      // 创建新的结构化数据脚本
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.textContent = JSON.stringify(structuredData)
+      document.head.appendChild(script)
+    }
+    
+    // 更新页面标题和描述
+    const updatePageTitleAndDescription = (model) => {
+      // 更新页面标题
+      document.title = `${model.brand} ${model.model} Upgrade Parts - RC Match AI`
+      
+      // 更新meta描述
+      let metaDescription = document.querySelector('meta[name="description"]')
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta')
+        metaDescription.name = 'description'
+        document.head.appendChild(metaDescription)
+      }
+      metaDescription.content = `Find the best upgrade parts for ${model.brand} ${model.model} ${model.scale} scale RC car. Browse ESC, motor, servo, suspension, and chassis upgrades. ${upgradeRecords.value.length} parts available.`
+      
+      // 更新Open Graph标签
+      updateOpenGraphTags(model)
+    }
+    
+    // 更新Open Graph标签
+    const updateOpenGraphTags = (model) => {
+      const ogTitle = document.querySelector('meta[property="og:title"]')
+      const ogDescription = document.querySelector('meta[property="og:description"]')
+      const ogUrl = document.querySelector('meta[property="og:url"]')
+      
+      if (ogTitle) {
+        ogTitle.content = `${model.brand} ${model.model} Upgrade Parts - RC Match AI`
+      }
+      
+      if (ogDescription) {
+        ogDescription.content = `Find the best upgrade parts for ${model.brand} ${model.model} ${model.scale} scale RC car. ${upgradeRecords.value.length} parts available.`
+      }
+      
+      if (ogUrl) {
+        ogUrl.content = window.location.href
+      }
+    }
+
     // 显示详情弹窗
     const showRecordDetail = (record) => {
       selectedRecord.value = record
@@ -248,7 +334,7 @@ export default defineComponent({
     // }
 
     onMounted(() => {
-      // 处理语义化路由参数：/search/:brand/:model
+      // 处理语义化路由参数：/upgrade-parts/:brand/:model
       if (route.params.brand && route.params.model) {
         const brand = route.params.brand.replace(/-/g, ' ')
         const model = route.params.model.replace(/-/g, ' ')
@@ -268,6 +354,12 @@ export default defineComponent({
           }
           // 加载该车型的升级记录
           loadUpgradeRecords(foundModel.id)
+          
+          // 添加结构化数据
+          addStructuredData(foundModel)
+          
+          // 更新页面标题和描述
+          updatePageTitleAndDescription(foundModel)
         }
       }
       // 从路由参数获取车型ID
