@@ -11,53 +11,7 @@
 
       <!-- Main Content -->
       <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-          <h1 class="hero-title">Stop buying the wrong parts.</h1>
-          <p class="hero-subtitle">Find the perfect match instantly.</p>
-          
-          <!-- Project Introduction -->
-          <div class="project-intro">
-            <div class="intro-card">
-              <h2>🚀 Solving Core Pain Points for RC Enthusiasts</h2>
-              <div class="pain-points">
-                <div class="pain-point">
-                  <span class="icon">💸</span>
-                  <div>
-                    <h3>Save Money</h3>
-                    <p>Buying wrong parts? Compatibility issues? RC Match AI helps you avoid unnecessary expenses</p>
-                  </div>
-                </div>
-                <div class="pain-point">
-                  <span class="icon">⏰</span>
-                  <div>
-                    <h3>Save Time</h3>
-                    <p>No more spending hours researching forums and reviews - get the best upgrade solutions instantly</p>
-                  </div>
-                </div>
-                <div class="pain-point">
-                  <span class="icon">🔧</span>
-                  <div>
-                    <h3>Expert Advice</h3>
-                    <p>Based on real user experiences and AI analysis, providing the most reliable part recommendations</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="ai-update-section">
-                <h3>🤖 AI-Powered Data Updates</h3>
-                <p>Our database is regularly updated using AI technology to ensure you get the latest part information and upgrade recommendations</p>
-              </div>
-              
-              <div class="contact-section">
-                <p>Questions or suggestions? Contact us:</p>
-                <a href="mailto:bairdweng@gmail.com" class="contact-link">📧 bairdweng@gmail.com</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Search Section -->
+        <!-- Search Section - Moved to Top -->
         <section class="search-section">
           <div class="search-container" @click.stop>
             <n-dropdown
@@ -100,6 +54,52 @@
           </div>
         </section>
 
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <h1 class="hero-title">Never Buy the Wrong RC Parts Again</h1>
+          <p class="hero-subtitle">AI-powered compatibility matching for RC enthusiasts</p>
+          
+          <!-- Project Introduction -->
+          <div class="project-intro">
+            <div class="intro-card">
+              <h2>🚀 Smart Parts Matching for RC Enthusiasts</h2>
+              <div class="pain-points">
+                <div class="pain-point">
+                  <span class="icon">💸</span>
+                  <div>
+                    <h3>Save Money & Avoid Mistakes</h3>
+                    <p>Eliminate compatibility issues and wasted purchases with our AI-powered part matching system</p>
+                  </div>
+                </div>
+                <div class="pain-point">
+                  <span class="icon">⏰</span>
+                  <div>
+                    <h3>Instant Expert Recommendations</h3>
+                    <p>Skip hours of research - get personalized upgrade solutions based on real user experiences</p>
+                  </div>
+                </div>
+                <div class="pain-point">
+                  <span class="icon">🔧</span>
+                  <div>
+                    <h3>Proven Performance Upgrades</h3>
+                    <p>Access community-vetted parts and proven performance combinations for your specific RC model</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="ai-update-section">
+                <h3>🤖 AI-Powered Intelligence</h3>
+                <p>Our system continuously learns from thousands of successful upgrades to provide the most accurate recommendations for Traxxas, Arrma, Losi, and other popular brands</p>
+              </div>
+              
+              <div class="contact-section">
+                <p>Have questions or suggestions? We'd love to hear from you:</p>
+                <a href="mailto:bairdweng@gmail.com" class="contact-link">📧 bairdweng@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Create Form Modal -->
         <CreateForm 
           v-model:show="showCreateForm"
@@ -110,40 +110,6 @@
       <footer class="footer">
         <p>Powered by RC Match AI</p>
       </footer>
-      
-      <!-- Structured Data for SEO -->
-      <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "RC Match AI - Intelligent RC Model Upgrade Parts Finder",
-        "description": "Find the perfect upgrade parts for your Traxxas, Arrma, Losi RC models. AI-powered compatibility checker for ESC, motor, servo, suspension, and chassis upgrades.",
-        "url": "https://bairdweng.github.io/aircmate/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://bairdweng.github.io/aircmate/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        },
-        "keywords": ["Traxxas", "Arrma", "Losi", "RC car", "upgrade parts", "ESC", "motor", "servo", "suspension", "chassis", "1:10 scale", "1:8 scale"],
-        "mainEntity": [
-          {
-            "@type": "Brand",
-            "name": "Traxxas",
-            "description": "Traxxas RC car models including Slash, Rustler, Maxx, X-Maxx, Revo, TRX-4"
-          },
-          {
-            "@type": "Brand", 
-            "name": "Arrma",
-            "description": "Arrma RC car models including Granite, Typhon, Kraton, Outcast"
-          },
-          {
-            "@type": "Brand",
-            "name": "Losi",
-            "description": "Losi RC car models including Mini 8IGHT, Tenacity, DBXL"
-          }
-        ]
-      }
-      </script>
     </div>
   </n-message-provider>
 </template>
@@ -562,18 +528,21 @@ export default {
   text-decoration: underline;
 }
 
-/* Search Section */
+/* Search Section - Top Position */
 .search-section {
   margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 
 .search-container {
   display: flex;
   gap: 1rem;
   background-color: var(--bg-secondary);
-  padding: 0.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .search-input {

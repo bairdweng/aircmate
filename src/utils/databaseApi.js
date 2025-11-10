@@ -30,8 +30,10 @@ async function loadData() {
      
      const allData = await loadData()
      
-     // 过滤出对应车型的数据
-     const result = allData.filter(record => record.modelId === modelId)
+     // 过滤出对应车型的数据，或者文章类型的数据（文章类型不需要车型匹配）
+     const result = allData.filter(record => 
+       record.modelId === modelId || record.type === 'article'
+     )
      
      console.log('查询结果:', result.length, '条记录')
      return result

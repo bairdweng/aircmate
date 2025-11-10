@@ -205,7 +205,8 @@ export default defineComponent({
           submitter: part.submitter,
           approved: part.approved === true || part.approved === 1,
           timestamp: part.timestamp,
-          source: part.source
+          source: part.source,
+          type: part.type || 'upgrade' // 默认为升级类型
         }))
         
         console.log('加载的配件数据:', upgradeRecords.value)

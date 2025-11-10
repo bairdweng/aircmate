@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import SearchResults from '../components/SearchResults.vue'
+import ArticleDetail from '../views/ArticleDetail.vue'
 import { trackPageView } from '../utils/analytics.js'
 
 const routes = [
@@ -51,6 +52,21 @@ const routes = [
     meta: {
       title: 'RC Upgrade Part Details - RC Match AI',
       description: 'Detailed information about RC upgrade parts. Compatibility, specifications, and installation guides.'
+    }
+  },
+  {
+    path: '/articles/:id',
+    name: 'ArticleDetail',
+    component: ArticleDetail,
+    props: true,
+    meta: {
+      title: (to) => {
+        // 这里会在组件加载后动态更新
+        return 'RC Upgrade Guide - RC Match AI'
+      },
+      description: (to) => {
+        return 'Detailed RC upgrade guide with step-by-step instructions and images.'
+      }
     }
   },
   {
