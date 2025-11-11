@@ -1,0 +1,356 @@
+{
+  "image_management_config": {
+    "project_overview": {
+      "total_models": 20,
+      "estimated_total_images": 106,
+      "estimated_storage_size": "50-100MB",
+      "execution_phases": 3
+    },
+    
+    "brand_distribution": {
+      "traxxas": {
+        "count": 13,
+        "models": [
+          "Traxxas Slash 2WD",
+          "Traxxas Slash 4x4", 
+          "Traxxas Slash MVP",
+          "Traxxas Rustler 2WD",
+          "Traxxas Rustler",
+          "Traxxas Maxx",
+          "Traxxas X-Maxx",
+          "Traxxas Revo 3.3",
+          "Traxxas Jato 4x4",
+          "Traxxas Rally ST",
+          "Traxxas Summit",
+          "Traxxas Slash Ultimate",
+          "Traxxas TRX-4 / TRX4"
+        ],
+        "priority": "high",
+        "estimated_images": 52
+      },
+      "team_associated": {
+        "count": 3,
+        "models": [
+          "Team Associated RC10 T2",
+          "Team Associated TT02", 
+          "Team Associated SC10 2"
+        ],
+        "priority": "medium",
+        "estimated_images": 12
+      },
+      "losi": {
+        "count": 1,
+        "models": ["Losi Mini 8IGHT"],
+        "priority": "medium", 
+        "estimated_images": 4
+      },
+      "arrma": {
+        "count": 2,
+        "models": [
+          "Arrma Granite 223S",
+          "Arrma Typhon 6S"
+        ],
+        "priority": "medium",
+        "estimated_images": 8
+      },
+      "nitro": {
+        "count": 1,
+        "models": ["Nitro 4-Tec"],
+        "priority": "low",
+        "estimated_images": 4
+      }
+    },
+    
+    "execution_phases": {
+      "phase_1": {
+        "name": "高优先级车型",
+        "models": [
+          {
+            "id": 1,
+            "brand": "Traxxas",
+            "model": "Slash 2WD",
+            "fullName": "Traxxas Slash 2WD",
+            "reason": "已有文章基础，SEO优化潜力大",
+            "estimated_images": 6
+          },
+          {
+            "id": 2,
+            "brand": "Traxxas", 
+            "model": "Slash 4x4",
+            "fullName": "Traxxas Slash 4x4",
+            "reason": "热门车型，用户搜索量大",
+            "estimated_images": 6
+          },
+          {
+            "id": 18,
+            "brand": "Arrma",
+            "model": "Granite 223S", 
+            "fullName": "Arrma Granite 223S",
+            "reason": "已有数据基础，内容扩展性强",
+            "estimated_images": 6
+          }
+        ],
+        "total_images": 18,
+        "priority": "high"
+      },
+      
+      "phase_2": {
+        "name": "中等优先级车型",
+        "models": [
+          {
+            "id": 5,
+            "brand": "Traxxas",
+            "model": "Rustler 2WD",
+            "fullName": "Traxxas Rustler 2WD",
+            "reason": "经典车型，改装需求旺盛",
+            "estimated_images": 5
+          },
+          {
+            "id": 6,
+            "brand": "Traxxas",
+            "model": "Maxx",
+            "fullName": "Traxxas Maxx", 
+            "reason": "大脚车型，性能升级需求大",
+            "estimated_images": 5
+          },
+          {
+            "id": 17,
+            "brand": "Losi",
+            "model": "Mini 8IGHT",
+            "fullName": "Losi Mini 8IGHT",
+            "reason": "竞速车型，技术含量高",
+            "estimated_images": 5
+          }
+        ],
+        "total_images": 15,
+        "priority": "medium"
+      },
+      
+      "phase_3": {
+        "name": "完善车型库",
+        "models": [
+          {
+            "id": 3,
+            "brand": "Traxxas",
+            "model": "Slash MVP",
+            "fullName": "Traxxas Slash MVP",
+            "reason": "特殊版本车型，改装潜力大",
+            "estimated_images": 5
+          },
+          {
+            "id": 4,
+            "brand": "Traxxas",
+            "model": "Rustler 4x4",
+            "fullName": "Traxxas Rustler 4x4",
+            "reason": "4WD版本，性能升级需求",
+            "estimated_images": 5
+          },
+          {
+            "id": 7,
+            "brand": "Traxxas",
+            "model": "X-Maxx",
+            "fullName": "Traxxas X-Maxx",
+            "reason": "大比例车型，视觉冲击力强",
+            "estimated_images": 5
+          },
+          {
+            "id": 8,
+            "brand": "Traxxas",
+            "model": "Revo 3.3",
+            "fullName": "Traxxas Revo 3.3",
+            "reason": "油动车型，技术含量高",
+            "estimated_images": 5
+          },
+          {
+            "id": 9,
+            "brand": "Traxxas",
+            "model": "Jato 4x4",
+            "fullName": "Traxxas Jato 4x4",
+            "reason": "高速车型，性能改装需求",
+            "estimated_images": 5
+          },
+          {
+            "id": 10,
+            "brand": "Traxxas",
+            "model": "Rally ST",
+            "fullName": "Traxxas Rally ST",
+            "reason": "拉力车型，外观改装潜力",
+            "estimated_images": 5
+          },
+          {
+            "id": 11,
+            "brand": "Traxxas",
+            "model": "Summit",
+            "fullName": "Traxxas Summit",
+            "reason": "攀爬车型，功能升级需求",
+            "estimated_images": 5
+          },
+          {
+            "id": 12,
+            "brand": "Traxxas",
+            "model": "Slash Ultimate",
+            "fullName": "Traxxas Slash Ultimate",
+            "reason": "顶级版本，高端改装参考",
+            "estimated_images": 5
+          },
+          {
+            "id": 13,
+            "brand": "Traxxas",
+            "model": "TRX-4 / TRX4",
+            "fullName": "Traxxas TRX-4 / TRX4",
+            "reason": "攀爬车型，外观改装热门",
+            "estimated_images": 5
+          },
+          {
+            "id": 14,
+            "brand": "Team Associated",
+            "model": "RC10 T2",
+            "fullName": "Team Associated RC10 T2",
+            "reason": "经典竞速车型，技术参考价值高",
+            "estimated_images": 5
+          },
+          {
+            "id": 15,
+            "brand": "Team Associated",
+            "model": "TT02",
+            "fullName": "Team Associated TT02",
+            "reason": "入门级车型，改装教程需求",
+            "estimated_images": 5
+          },
+          {
+            "id": 16,
+            "brand": "Team Associated",
+            "model": "SC10 2",
+            "fullName": "Team Associated SC10 2",
+            "reason": "短卡车型，性能升级参考",
+            "estimated_images": 5
+          },
+          {
+            "id": 19,
+            "brand": "Arrma",
+            "model": "Typhon 6S",
+            "fullName": "Arrma Typhon 6S",
+            "reason": "大比例竞速车型，性能改装",
+            "estimated_images": 5
+          },
+          {
+            "id": 20,
+            "brand": "Nitro",
+            "model": "4-Tec",
+            "fullName": "Nitro 4-Tec",
+            "reason": "油动车型，技术维护参考",
+            "estimated_images": 5
+          }
+        ],
+        "total_images": 70,
+        "priority": "low",
+        "reason": "完善整个车型库，提供全面覆盖"
+      }
+    },
+    
+    "image_specifications": {
+      "cover_images": {
+        "resolution": "1200x800",
+        "format": "jpg",
+        "quality": "high",
+        "compression": 85,
+        "max_size": "500KB",
+        "usage": "文章封面图"
+      },
+      "step_images": {
+        "resolution": "800x600", 
+        "format": "jpg",
+        "quality": "medium",
+        "compression": 75,
+        "max_size": "200KB",
+        "usage": "安装步骤说明图"
+      },
+      "technical_diagrams": {
+        "resolution": "1000x1000",
+        "format": "png",
+        "quality": "high", 
+        "transparency": true,
+        "usage": "技术图解和零件示意图"
+      },
+      "product_images": {
+        "resolution": "1000x800",
+        "format": "jpg", 
+        "quality": "high",
+        "compression": 80,
+        "max_size": "400KB",
+        "usage": "产品展示图"
+      }
+    },
+    
+    "storage_structure": {
+      "base_directory": "public/uploads/models/",
+      "directory_pattern": "{brand}/{model-slug}/",
+      "subdirectories": ["product", "installation", "technical", "performance"],
+      "naming_convention": "{brand}_{model}_{type}_{sequence}.{extension}"
+    },
+    
+    "copyright_management": {
+      "preferred_sources": {
+        "official_websites": ["traxxas.com", "arrma-rc.com", "losi.com", "teamassociated.com"],
+        "stock_photo_sites": ["unsplash.com", "pexels.com", "pixabay.com"],
+        "user_communities": ["rctech.net", "rcgroups.com", "rccrawler.com"]
+      },
+      "licensing_requirements": {
+        "commercial_use": true,
+        "modification_allowed": true,
+        "attribution_required": true,
+        "preferred_licenses": ["CC0", "Public Domain", "Royalty Free"]
+      },
+      "attribution_format": "Image source: {source}, License: {license}"
+    },
+    
+    "quality_control": {
+      "manual_review": true,
+      "minimum_requirements": {
+        "resolution": "800x600",
+        "file_size": "50KB-500KB",
+        "format": ["jpg", "png"],
+        "aspect_ratio": ["16:9", "4:3", "1:1"]
+      },
+      "rejection_criteria": [
+        "watermarked images",
+        "low resolution (below 800x600)",
+        "irrelevant content",
+        "poor lighting or focus",
+        "excessive compression artifacts"
+      ],
+      "approval_workflow": "download -> review -> approve -> rename -> organize"
+    },
+    
+    "file_naming_convention": {
+      "examples": {
+        "cover_image": "traxxas_slash-2wd_cover_01.jpg",
+        "installation_step": "traxxas_slash-2wd_installation_01.jpg", 
+        "technical_diagram": "traxxas_slash-2wd_technical_01.png",
+        "product_showcase": "traxxas_slash-2wd_product_01.jpg"
+      },
+      "rules": {
+        "brand": "lowercase, hyphen-separated",
+        "model": "lowercase, hyphen-separated", 
+        "type": "descriptive (cover, installation, technical, product)",
+        "sequence": "two-digit number (01, 02, etc.)",
+        "extension": "jpg or png"
+      }
+    }
+  },
+  
+  "execution_checklist": {
+    "phase_1_confirmation": {
+      "status": "pending",
+      "models_to_confirm": ["Traxxas Slash 2WD", "Traxxas Slash 4x4", "Arrma Granite 223S"],
+      "images_per_model": 6,
+      "total_images": 18
+    },
+    "general_settings_confirmation": {
+      "image_quality": "pending",
+      "storage_structure": "pending", 
+      "copyright_requirements": "pending",
+      "naming_convention": "pending"
+    }
+  }
+}

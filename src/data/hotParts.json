@@ -3424,7 +3424,7 @@
     {
       "id": 203,
       "type": "article",
-      "modelId": -1,
+      "modelId": 1,
       "part": "Traxxas Slash 2WD Customization Guide: Style and Function Upgrades",
       "upgrade_spec": "Complete customization guide for personalizing your Slash 2WD with appearance and functional upgrades",
       "mdPath": "/articles/traxxas-slash-2wd-customization-guide.md",
@@ -3440,6 +3440,90 @@
         "brand": "Traxxas",
         "model": "Slash 2WD",
         "fullName": "Traxxas Slash 2WD"
+      }
+    },
+    {
+      "id": 206,
+      "type": "article",
+      "modelId": 1,
+      "part": "Traxxas Slash 2WD Upgrade Parts: Essential Components Guide (390 Searches)",
+      "upgrade_spec": "Comprehensive guide to essential upgrade parts for Traxxas Slash 2WD, covering budget planning and installation timeline",
+      "mdPath": "/articles/traxxas-slash-2wd-upgrade-parts.md",
+      "coverImage": "/uploads/md_test_img.png",
+      "author": "RC Parts Specialist",
+      "readTime": "15 minutes",
+      "difficulty": 2,
+      "source": "https://github.com/bairdweng/aircmate",
+      "submitter": "System Administrator",
+      "timestamp": "2024-12-20 15:00:00",
+      "approved": true,
+      "modelInfo": {
+        "brand": "Traxxas",
+        "model": "Slash 2WD",
+        "fullName": "Traxxas Slash 2WD"
+      }
+    },
+    {
+      "id": 207,
+      "type": "article",
+      "modelId": 2,
+      "part": "Traxxas Slash 4x4 Performance Upgrade Guide: From Stock to Competition Ready (5.4K Searches)",
+      "upgrade_spec": "Comprehensive performance upgrade guide for transforming your Slash 4x4 into a competitive racing machine with advanced 4WD capabilities",
+      "mdPath": "/articles/traxxas-slash-4x4-performance-upgrade-guide.md",
+      "coverImage": "/uploads/md_test_img.png",
+      "author": "RC Performance Expert",
+      "readTime": "25 minutes",
+      "difficulty": 4,
+      "source": "https://github.com/bairdweng/aircmate",
+      "submitter": "System Administrator",
+      "timestamp": "2024-12-20 15:15:00",
+      "approved": true,
+      "modelInfo": {
+        "brand": "Traxxas",
+        "model": "Slash 4x4",
+        "fullName": "Traxxas Slash 4x4"
+      }
+    },
+    {
+      "id": 208,
+      "type": "article",
+      "modelId": 2,
+      "part": "Traxxas Slash 4x4 Ultimate Upgrade Guide: Premium Performance Optimization (1.6K Searches)",
+      "upgrade_spec": "Complete upgrade guide for Traxxas Slash 4x4 Ultimate version, focusing on premium components and professional racing setups",
+      "mdPath": "/articles/traxxas-slash-4x4-ultimate-upgrade-guide.md",
+      "coverImage": "/uploads/md_test_img.png",
+      "author": "RC Ultimate Specialist",
+      "readTime": "22 minutes",
+      "difficulty": 5,
+      "source": "https://github.com/bairdweng/aircmate",
+      "submitter": "System Administrator",
+      "timestamp": "2024-12-20 15:30:00",
+      "approved": true,
+      "modelInfo": {
+        "brand": "Traxxas",
+        "model": "Slash 4x4",
+        "fullName": "Traxxas Slash 4x4"
+      }
+    },
+    {
+      "id": 209,
+      "type": "article",
+      "modelId": 2,
+      "part": "Traxxas Slash 4x4 VXL Upgrade Guide: Advanced Electronics and Performance (1.3K Searches)",
+      "upgrade_spec": "Specialized upgrade guide for Traxxas Slash 4x4 VXL version, focusing on advanced electronics, cooling systems, and performance tuning",
+      "mdPath": "/articles/traxxas-slash-4x4-vxl-upgrade-guide.md",
+      "coverImage": "/uploads/md_test_img.png",
+      "author": "RC Electronics Expert",
+      "readTime": "20 minutes",
+      "difficulty": 4,
+      "source": "https://github.com/bairdweng/aircmate",
+      "submitter": "System Administrator",
+      "timestamp": "2024-12-20 15:45:00",
+      "approved": true,
+      "modelInfo": {
+        "brand": "Traxxas",
+        "model": "Slash 4x4",
+        "fullName": "Traxxas Slash 4x4"
       }
     }
   ]

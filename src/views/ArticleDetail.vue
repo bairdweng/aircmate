@@ -106,6 +106,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { NSpin, NBreadcrumb, NBreadcrumbItem, NAvatar, NTime, NTag, NButton, NSpace, NIcon, NDivider, NResult } from 'naive-ui'
 import MarkdownRenderer from '../components/MarkdownRenderer.vue'
 import hotPartsData from '../data/hotParts.json'
+import articleSEO from '../data/articleSEO.json'
 
 export default {
   name: 'ArticleDetail',
@@ -184,6 +185,80 @@ export default {
       
       return `${article.id}-${brand}-${model}/${part}`
     }
+
+    // 动态更新SEO配置
+    const updateArticleSEO = (article) => {
+      const articleId = article.id.toString()
+      const seoConfig = articleSEO.articles[articleId] || articleSEO.default
+      
+      // 更新页面标题
+      document.title = seoConfig.title
+      
+      // 更新meta description
+      let metaDescription = document.querySelector('meta[name="description"]')
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta')
+        metaDescription.name = 'description'
+        document.head.appendChild(metaDescription)
+      }
+      metaDescription.content = seoConfig.description
+      
+      // 更新keywords
+      let metaKeywords = document.querySelector('meta[name="keywords"]')
+      if (!metaKeywords) {
+        metaKeywords = document.createElement('meta')
+        metaKeywords.name = 'keywords'
+        document.head.appendChild(metaKeywords)
+      }
+      metaKeywords.content = seoConfig.keywords
+      
+      // 更新Open Graph标签
+      updateOpenGraphTags(article, seoConfig)
+      
+      // 更新canonical URL
+      updateCanonicalURL()
+      
+      console.log('SEO配置已更新:', {
+        title: seoConfig.title,
+        description: seoConfig.description,
+        keywords: seoConfig.keywords
+      })
+    }
+
+    // 更新Open Graph标签
+    const updateOpenGraphTags = (article, seoConfig) => {
+      const ogTitle = document.querySelector('meta[property="og:title"]')
+      const ogDescription = document.querySelector('meta[property="og:description"]')
+      const ogUrl = document.querySelector('meta[property="og:url"]')
+      const ogType = document.querySelector('meta[property="og:type"]')
+      
+      if (ogTitle) {
+        ogTitle.content = seoConfig.title
+      }
+      
+      if (ogDescription) {
+        ogDescription.content = seoConfig.description
+      }
+      
+      if (ogUrl) {
+        ogUrl.content = window.location.href
+      }
+      
+      if (ogType) {
+        ogType.content = 'article'
+      }
+    }
+
+    // 更新canonical URL
+    const updateCanonicalURL = () => {
+      let canonicalLink = document.querySelector('link[rel="canonical"]')
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link')
+        canonicalLink.rel = 'canonical'
+        document.head.appendChild(canonicalLink)
+      }
+      canonicalLink.href = window.location.href
+    }
     
     onMounted(() => {
       console.log('路由参数:', route.params)
@@ -229,6 +304,8 @@ export default {
             }
             
             article.value = foundArticle
+            // 更新SEO配置
+            updateArticleSEO(foundArticle)
           } else {
             // 如果找不到文章，显示404错误
             console.error('找不到ID为', articleId, '的文章')
