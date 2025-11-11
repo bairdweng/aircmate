@@ -55,10 +55,21 @@ const routes = [
     }
   },
   {
-    path: '/articles/:id',
+    path: '/articles/:slug/:part+',
     name: 'ArticleDetail',
     component: ArticleDetail,
-    props: true,
+    props: route => {
+      // 解析语义化URL参数
+      // 格式：/articles/202-traxxas-slash-2wd/traxxas-slash-2wd-performance-upgrade-guide-from-stock-to-competition-ready
+      // slug参数包含id-brand-model信息，在组件内部解析
+      const slug = route.params.slug
+      const part = route.params.part
+      
+      return {
+        slug: slug,
+        part: part
+      }
+    },
     meta: {
       title: (to) => {
         // 这里会在组件加载后动态更新
@@ -67,6 +78,16 @@ const routes = [
       description: (to) => {
         return 'Detailed RC upgrade guide with step-by-step instructions and images.'
       }
+    }
+  },
+  {
+    path: '/articles/:id',
+    name: 'ArticleDetailLegacy',
+    component: ArticleDetail,
+    props: true,
+    meta: {
+      title: 'RC Upgrade Guide - RC Match AI',
+      description: 'Detailed RC upgrade guide with step-by-step instructions and images.'
     }
   },
   {

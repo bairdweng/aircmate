@@ -163,24 +163,111 @@ export default {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
-    
+
     const goToModelSearch = (brand, model) => {
       // 将品牌和车型转换为URL友好的格式
       const brandSlug = brand.toLowerCase().replace(/\s+/g, '-')
       const modelSlug = model.toLowerCase().replace(/\s+/g, '-')
       router.push(`/upgrade-parts/${brandSlug}/${modelSlug}`)
     }
+
+    // 生成语义化URL slug的函数
+    const generateArticleSlug = (article) => {
+      const brand = article.modelInfo.brand.toLowerCase().replace(/\s+/g, '-')
+      const model = article.modelInfo.model.toLowerCase().replace(/\s+/g, '-')
+      const part = article.part
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/(^-|-$)/g, '')
+      
+      return `${article.id}-${brand}-${model}/${part}`
+    }
     
     onMounted(() => {
-      const articleId = parseInt(route.params.id)
+      console.log('路由参数:', route.params)
+      console.log('完整路径:', route.path)
       
-      // 查找文章数据
-      const foundArticle = hotPartsData.upgradeRecords.find(
-        record => record.id === articleId && record.type === 'article'
-      )
+      let articleId
       
-      if (foundArticle) {
-        article.value = foundArticle
+      // 检查是否使用新的语义化URL格式
+      if (route.params.slug && route.params.part) {
+        // 新的语义化URL格式：/articles/:slug/:part+
+        // slug参数格式：id-brand-model（例如：203-traxxas-slash-2wd）
+        const slugParts = route.params.slug.split('-')
+        
+        if (slugParts.length >= 3) {
+          // 从slug中提取id、brand、model
+          articleId = parseInt(slugParts[0])
+          const brandFromSlug = slugParts.slice(1, -1).join('-').replace(/-/g, ' ')
+          const modelFromSlug = slugParts[slugParts.length - 1].replace(/-/g, ' ')
+          
+          // 查找文章数据
+          const foundArticle = hotPartsData.upgradeRecords.find(
+            record => record.id === articleId && record.type === 'article'
+          )
+          
+          if (foundArticle) {
+            const actualBrand = foundArticle.modelInfo.brand.toLowerCase()
+            const actualModel = foundArticle.modelInfo.model.toLowerCase()
+            const actualPart = foundArticle.part.toLowerCase()
+            
+            // 处理part参数，可能是数组（使用:part+时）或字符串
+            const partParam = Array.isArray(route.params.part) ? route.params.part.join('/') : route.params.part
+            const expectedPart = partParam.replace(/-/g, ' ').toLowerCase()
+            
+            // 如果语义化信息不匹配，重定向到正确的语义化URL
+            if (actualBrand !== brandFromSlug.toLowerCase() || actualModel !== modelFromSlug.toLowerCase() || actualPart !== expectedPart) {
+              console.warn('URL语义化信息不匹配，但ID正确。建议使用正确的语义化URL')
+              const correctSlug = generateArticleSlug(foundArticle)
+              if (route.path !== `/articles/${correctSlug}`) {
+                console.log('重定向到正确的语义化URL:', `/articles/${correctSlug}`)
+                router.replace(`/articles/${correctSlug}`)
+                return
+              }
+            }
+            
+            article.value = foundArticle
+          } else {
+            // 如果找不到文章，显示404错误
+            console.error('找不到ID为', articleId, '的文章')
+            loading.value = false
+            return
+          }
+        } else {
+          // slug格式不正确，尝试从旧格式URL解析
+          articleId = parseInt(route.params.slug)
+          
+          // 查找文章数据
+          const foundArticle = hotPartsData.upgradeRecords.find(
+            record => record.id === articleId && record.type === 'article'
+          )
+          
+          if (foundArticle) {
+            // 重定向到语义化URL
+            const correctSlug = generateArticleSlug(foundArticle)
+            console.log('从旧URL重定向到语义化URL:', `/articles/${correctSlug}`)
+            router.replace(`/articles/${correctSlug}`)
+            return
+          }
+        }
+      } else {
+        // 旧格式URL：/articles/:id
+        articleId = parseInt(route.params.id)
+        
+        // 查找文章数据
+        const foundArticle = hotPartsData.upgradeRecords.find(
+          record => record.id === articleId && record.type === 'article'
+        )
+        
+        if (foundArticle) {
+          // 重定向到语义化URL
+          const correctSlug = generateArticleSlug(foundArticle)
+          console.log('从旧URL重定向到语义化URL:', `/articles/${correctSlug}`)
+          router.replace(`/articles/${correctSlug}`)
+          return
+        }
       }
       
       loading.value = false

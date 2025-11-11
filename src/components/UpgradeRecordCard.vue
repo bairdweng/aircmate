@@ -129,9 +129,40 @@ export default defineComponent({
     
     openArticle() {
       if (this.isArticle) {
-        // Navigate to article detail page
-        this.$router.push(`/articles/${this.record.id}`)
+        // Generate semantic URL components
+        const slug = this.generateArticleSlug(this.record)
+        const part = this.formatForUrl(this.record.part || 'unknown')
+        // Navigate to article detail page with semantic URL
+        this.$router.push(`/articles/${slug}/${part}`)
       }
+    },
+    
+    formatForUrl(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/(^-|-$)/g, '')
+    },
+    
+    generateArticleSlug(article) {
+      // Extract brand, model, and part from article data
+      console.log('generateArticleSlug - article data:', article)
+      console.log('generateArticleSlug - modelInfo:', article.modelInfo)
+      
+      const brand = article.modelInfo?.brand || 'unknown'
+      const model = article.modelInfo?.model || 'unknown'
+      
+      console.log('generateArticleSlug - brand:', brand, 'model:', model)
+      
+      // 匹配路由配置：/articles/:slug/:part+
+      // slug格式：id-brand-model（例如：203-traxxas-slash-2wd）
+      // part格式：traxxas-slash-2wd-customization-guide-style-and-function-upgrades
+      const slug = `${article.id}-${this.formatForUrl(brand)}-${this.formatForUrl(model)}`
+      console.log('generateArticleSlug - generated slug:', slug)
+      
+      return slug
     },
     
     openSource() {

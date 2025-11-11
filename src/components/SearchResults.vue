@@ -206,7 +206,12 @@ export default defineComponent({
           approved: part.approved === true || part.approved === 1,
           timestamp: part.timestamp,
           source: part.source,
-          type: part.type || 'upgrade' // 默认为升级类型
+          type: part.type || 'upgrade', // 默认为升级类型
+          modelInfo: {
+            brand: currentModel.value?.brand || 'unknown',
+            model: currentModel.value?.model || 'unknown',
+            fullName: currentModel.value?.fullName || 'unknown'
+          }
         }))
         
         console.log('加载的配件数据:', upgradeRecords.value)
