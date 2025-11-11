@@ -361,4 +361,57 @@ imageConfigChecklist.json (执行确认)
 4. **及时沟通** - 保持开发进度的透明度
 5. **质量优先** - 确保代码质量和系统稳定性
 
+## 文章语言规范
+
+### Traxxas Slash 4x4系列全英文规则
+
+**规则生效日期**: 2024-12-20
+**适用范围**: 所有Traxxas Slash 4x4相关文章
+
+#### 1. 适用车型
+- Traxxas Slash 4x4 (车型ID: 2)
+- 包括所有4x4版本：标准版、VXL版、Ultimate版等
+
+#### 2. 语言要求
+- **标题**: 必须使用英文
+- **描述**: 必须使用英文
+- **关键词**: 必须使用英文
+- **正文内容**: 必须使用英文
+- **图片说明**: 必须使用英文
+- **元数据**: 必须使用英文
+
+#### 3. 已转换的文章
+以下Traxxas Slash 4x4相关文章已转换为全英文格式：
+
+1. **traxxas-slash-4x4-performance-upgrade-guide.md**
+   - 标题: "Traxxas Slash 4x4 Performance Upgrade Guide: Complete Step-by-Step Tutorial"
+   - 路径: `/public/articles/traxxas-slash-4x4-performance-upgrade-guide.md`
+
+2. **traxxas-slash-4x4-ultimate-upgrade-guide.md**
+   - 标题: "Traxxas Slash 4x4 Ultimate Upgrade Guide: Premium Performance Optimization"
+   - 路径: `/public/articles/traxxas-slash-4x4-ultimate-upgrade-guide.md`
+
+3. **traxxas-slash-4x4-vxl-upgrade-guide.md**
+   - 标题: "Traxxas Slash 4x4 VXL Upgrade Guide: High-Performance Electronics Optimization"
+   - 路径: `/public/articles/traxxas-slash-4x4-vxl-upgrade-guide.md`
+
+#### 4. 路径规范
+所有Traxxas Slash 4x4文章的mdPath必须使用相对路径格式（无开头斜杠）：
+- ✅ 正确格式: `articles/traxxas-slash-4x4-performance-upgrade-guide.md`
+- ❌ 错误格式: `/articles/traxxas-slash-4x4-performance-upgrade-guide.md`
+
+#### 5. 未来文章创作要求
+- 所有新创建的Traxxas Slash 4x4相关文章必须遵循全英文规则
+- 在hotParts.json中创建新记录时，确保type字段设置为"article"
+- 确保modelId正确设置为2（Traxxas Slash 4x4）
+
+#### 6. 维护和更新
+- 定期检查现有文章是否符合英文规范
+- 如有新的Traxxas Slash 4x4版本发布，及时创建对应的英文文章
+- 保持与hotParts.json中记录的一致性
+
+### 其他车型语言规范
+- 其他车型暂时保持现有语言格式（中英文混合）
+- 如有特定车型需要全英文规范，将在此文档中单独添加
+
 此文档将帮助您在后续开发中快速理解系统架构和各配置文件的作用，并遵循规范的开发流程。

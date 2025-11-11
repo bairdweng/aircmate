@@ -10,7 +10,7 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'RC Match AI - Find Upgrade Parts for Traxxas, Arrma, Losi RC Models',
+      title: 'aircmate - Find Upgrade Parts for Traxxas, Arrma, Losi RC Models',
       description: 'AI-powered RC upgrade parts finder for Traxxas Slash, Arrma Granite, Losi Mini 8IGHT, Team Associated models. Find compatible parts, ESC, motor, battery upgrades for 1:10, 1:8 scale RC cars, trucks, buggies.'
     }
   },
@@ -20,7 +20,7 @@ const routes = [
     component: SearchResults,
     props: true,
     meta: {
-      title: 'RC Upgrade Parts Search Results - RC Match AI',
+      title: 'RC Upgrade Parts Search Results - aircmate',
       description: 'Find the best upgrade parts for your RC model. Browse verified parts with AI-powered recommendations.'
     }
   },
@@ -30,7 +30,7 @@ const routes = [
     component: SearchResults,
     props: true,
     meta: {
-      title: (to) => `${to.params.brand.replace(/-/g, ' ')} ${to.params.model.replace(/-/g, ' ')} Upgrade Parts - RC Match AI`,
+      title: (to) => `${to.params.brand.replace(/-/g, ' ')} ${to.params.model.replace(/-/g, ' ')} Upgrade Parts - aircmate`,
       description: (to) => `Find the best upgrade parts for ${to.params.brand.replace(/-/g, ' ')} ${to.params.model.replace(/-/g, ' ')} RC model. ESC, motor, battery, suspension upgrades with AI-powered compatibility matching.`
     }
   },
@@ -40,7 +40,7 @@ const routes = [
     component: SearchResults,
     props: true,
     meta: {
-      title: 'RC Model Upgrade Parts - RC Match AI',
+      title: 'RC Model Upgrade Parts - aircmate',
       description: 'Upgrade parts specifically matched for your RC model. Improve performance and reliability.'
     }
   },
@@ -50,7 +50,7 @@ const routes = [
     component: SearchResults,
     props: true,
     meta: {
-      title: 'RC Upgrade Part Details - RC Match AI',
+      title: 'RC Upgrade Part Details - aircmate',
       description: 'Detailed information about RC upgrade parts. Compatibility, specifications, and installation guides.'
     }
   },
@@ -73,7 +73,7 @@ const routes = [
     meta: {
       title: (to) => {
         // 这里会在组件加载后动态更新
-        return 'RC Upgrade Guide - RC Match AI'
+        return 'RC Upgrade Guide - aircmate'
       },
       description: (to) => {
         return 'Detailed RC upgrade guide with step-by-step instructions and images.'
@@ -86,7 +86,7 @@ const routes = [
     component: ArticleDetail,
     props: true,
     meta: {
-      title: 'RC Upgrade Guide - RC Match AI',
+      title: 'RC Upgrade Guide - aircmate',
       description: 'Detailed RC upgrade guide with step-by-step instructions and images.'
     }
   },
@@ -95,8 +95,8 @@ const routes = [
     name: 'NotFound',
     component: Home,
     meta: {
-      title: 'Page Not Found - RC Match AI',
-      description: 'The page you are looking for does not exist. Return to RC Match AI home page.'
+      title: 'Page Not Found - aircmate',
+      description: 'The page you are looking for does not exist. Return to aircmate home page.'
     }
   }
 ]
@@ -116,7 +116,7 @@ const router = createRouter({
 // 路由导航守卫，用于页面浏览跟踪和SEO优化
 router.afterEach((to, from) => {
   // 处理动态meta信息
-  let pageTitle = 'RC Match AI'
+  let pageTitle = 'aircmate'
   let pageDescription = 'AI-powered RC upgrade parts finder for RC models'
   
   if (typeof to.meta.title === 'function') {

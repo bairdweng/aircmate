@@ -195,7 +195,7 @@ export default defineComponent({
         const hotPartsData = await queryHotPartsFromDatabase(parseInt(modelId))
         
         // 转换为前端格式
-        upgradeRecords.value = hotPartsData.map(part => ({
+        const records = hotPartsData.map(part => ({
           id: part.id,
           model: currentModel.value?.fullName || '',
           part: part.part,
@@ -213,6 +213,16 @@ export default defineComponent({
             fullName: currentModel.value?.fullName || 'unknown'
           }
         }))
+        
+        // 排序逻辑：文章类型在前，按时间戳降序排序
+        upgradeRecords.value = records.sort((a, b) => {
+          // 首先按类型排序：文章在前，升级在后
+          if (a.type === 'article' && b.type !== 'article') return -1
+          if (a.type !== 'article' && b.type === 'article') return 1
+          
+          // 相同类型时按时间戳降序排序（最新的在前）
+          return new Date(b.timestamp) - new Date(a.timestamp)
+        })
         
         console.log('加载的配件数据:', upgradeRecords.value)
         
