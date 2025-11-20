@@ -72,6 +72,15 @@
     <meta name="google-site-verification" content="ljW6giDgWMt9rMgbl54J-ZdSgoK4Uu-2EtFib0B5t6w" />
   </head>
   <body>
+    <!-- 重定向到 rcdriftparts.com -->
+    <script>
+      // 检查当前URL是否为GitHub Pages地址，如果是则重定向
+      if (window.location.hostname === 'bairdweng.github.io' && 
+          window.location.pathname.startsWith('/aircmate')) {
+        window.location.replace('https://rcdriftparts.com/');
+      }
+    </script>
+    
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
